@@ -19,4 +19,28 @@ const addEvent = (ev) => {
     });
   });
 
-  
+  $("#9amblock").val(localStorage.getItem("event"));
+  $("#10amblock").val(localStorage.getItem("event"));
+  $("#11amblock").val(localStorage.getItem("event"));
+  $("#12pmblock").val(localStorage.getItem("event"));
+  $("#1pmblock").val(localStorage.getItem("event"));
+  $("#2pmblock").val(localStorage.getItem("event"));
+  $("#3pmblock").val(localStorage.getItem("event"));
+  $("#4pmblock").val(localStorage.getItem("event"));
+  $("#5pmblock").val(localStorage.getItem("event"));
+
+  var today = dayjs()
+
+  timeBlock.forEach(function (timeBlock) {//looping through each time block
+    var currentTime = today.hour();//getting current hour
+    var timeBlockHour = timeBlock.getAttribute("#hour");//getting time block hour
+    console.log(timeBlockHour);ggi
+
+    if (currentTime > timeBlockHour) {//comparing current hour to time block hour
+      timeBlock.classList.add("past");
+    } else if (currentTime < timeBlockHour) {
+      timeBlock.classList.add("future");
+    } else {
+      timeBlock.classList.add("present");
+    }
+  });
